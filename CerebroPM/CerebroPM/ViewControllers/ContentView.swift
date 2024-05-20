@@ -14,6 +14,17 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+            
+            Button(action: {
+
+                        print("Button pressed!")
+                    }) {
+                        Text("Click me!")
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
         }
         .padding()
     }

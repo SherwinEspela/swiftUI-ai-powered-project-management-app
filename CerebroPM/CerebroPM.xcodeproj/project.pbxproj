@@ -11,6 +11,7 @@
 		1EF582482BFBFC0A0060C56A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF582472BFBFC0A0060C56A /* ContentView.swift */; };
 		1EF5824A2BFBFC0C0060C56A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF582492BFBFC0C0060C56A /* Assets.xcassets */; };
 		1EF5824D2BFBFC0C0060C56A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF5824C2BFBFC0C0060C56A /* Preview Assets.xcassets */; };
+		1EF582542BFC03E90060C56A /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF582532BFC03E90060C56A /* TaskListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		1EF582472BFBFC0A0060C56A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1EF582492BFBFC0C0060C56A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EF5824C2BFBFC0C0060C56A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1EF582532BFC03E90060C56A /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +53,8 @@
 		1EF582442BFBFC0A0060C56A /* CerebroPM */ = {
 			isa = PBXGroup;
 			children = (
+				1EF582552BFC04050060C56A /* ViewControllers */,
 				1EF582452BFBFC0A0060C56A /* CerebroPMApp.swift */,
-				1EF582472BFBFC0A0060C56A /* ContentView.swift */,
 				1EF582492BFBFC0C0060C56A /* Assets.xcassets */,
 				1EF5824B2BFBFC0C0060C56A /* Preview Content */,
 			);
@@ -65,6 +67,15 @@
 				1EF5824C2BFBFC0C0060C56A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1EF582552BFC04050060C56A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1EF582472BFBFC0A0060C56A /* ContentView.swift */,
+				1EF582532BFC03E90060C56A /* TaskListView.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			files = (
 				1EF582482BFBFC0A0060C56A /* ContentView.swift in Sources */,
 				1EF582462BFBFC0A0060C56A /* CerebroPMApp.swift in Sources */,
+				1EF582542BFC03E90060C56A /* TaskListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
