@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import os
 
 struct TaskListView: View {
     @State private var tasks: [TaskModel] = [
@@ -16,6 +17,7 @@ struct TaskListView: View {
     
     @State private var showDetail = false
     @State private var selection: String? = nil
+    @State private var isShowingModal = false
         
         var body: some View {
             NavigationStack {
@@ -28,6 +30,15 @@ struct TaskListView: View {
                 .navigationDestination(for: TaskModel.self){ task in
                     TaskDetailView(task: task)
                 }
+                
+                Button("Add Task") {
+                    isShowingModal.toggle()
+                }
+                .sheet(isPresented: $isShowingModal){
+                    AddTaskModalView(isShowingModal: $isShowingModal) { message in
+                        print("dismiss message: \(message)")
+                    }
+                }
             }
         }
 }
@@ -35,5 +46,22 @@ struct TaskListView: View {
 struct TaskListView_Previews: PreviewProvider {
     static var previews: some View {
         TaskListView()
+    }
+}
+
+struct AddTaskModal: View {
+    
+    @State private var isShowingModal = false
+    
+    var body: some View {
+        VStack {
+            Text("Add Task")
+                .font(.title)
+            Text("This is a modal view with a title and a message.")
+            Button("Dismiss") {
+                isShowingModal.toggle()
+            }
+        }
+        .padding()
     }
 }

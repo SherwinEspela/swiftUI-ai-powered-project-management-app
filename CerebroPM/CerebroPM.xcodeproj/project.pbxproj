@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E58214A2BFD13A60038F690 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5821492BFD13A60038F690 /* TaskDetailView.swift */; };
 		1E58214D2BFD14730038F690 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E58214C2BFD14730038F690 /* TaskModel.swift */; };
+		1E58214F2BFD190F0038F690 /* AddTaskModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E58214E2BFD190F0038F690 /* AddTaskModalView.swift */; };
 		1EF582462BFBFC0A0060C56A /* CerebroPMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF582452BFBFC0A0060C56A /* CerebroPMApp.swift */; };
 		1EF582482BFBFC0A0060C56A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF582472BFBFC0A0060C56A /* ContentView.swift */; };
 		1EF5824A2BFBFC0C0060C56A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF582492BFBFC0C0060C56A /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		1E5821492BFD13A60038F690 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
 		1E58214C2BFD14730038F690 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		1E58214E2BFD190F0038F690 /* AddTaskModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskModalView.swift; sourceTree = "<group>"; };
 		1EF582422BFBFC0A0060C56A /* CerebroPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CerebroPM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF582452BFBFC0A0060C56A /* CerebroPMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CerebroPMApp.swift; sourceTree = "<group>"; };
 		1EF582472BFBFC0A0060C56A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,6 +44,7 @@
 			isa = PBXGroup;
 			children = (
 				1E5821492BFD13A60038F690 /* TaskDetailView.swift */,
+				1E58214E2BFD190F0038F690 /* AddTaskModalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				1E58214D2BFD14730038F690 /* TaskModel.swift in Sources */,
 				1EF582462BFBFC0A0060C56A /* CerebroPMApp.swift in Sources */,
 				1EF582542BFC03E90060C56A /* TaskListView.swift in Sources */,
+				1E58214F2BFD190F0038F690 /* AddTaskModalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
