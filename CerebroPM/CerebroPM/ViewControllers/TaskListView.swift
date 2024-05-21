@@ -10,7 +10,8 @@ import SwiftUI
 struct Task : Identifiable {
     var id = UUID()
     var name: String
-    var details: String?
+    var description: String?
+    var completed: Bool?
 }
 
 struct TaskListView: View {
@@ -21,27 +22,7 @@ struct TaskListView: View {
             Task(name: "Task 4"),
             Task(name: "Task 2"),
             Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
-            Task(name: "Task 2"),
+            Task(name: "Task Impossible", description: "An Impossible Task", completed: true),
             Task(name: "Task 2"),
             Task(name: "Task 2"),
             Task(name: "Task 2"),
@@ -59,7 +40,7 @@ struct TaskListView: View {
                 
                 Table(tasks) {
                     TableColumn("Task Name") { task in
-                        NavigationLink(destination: DetailView(name: task.name)) {
+                        NavigationLink(destination: TaskDetail(task: task)) {
                             Text(task.name)
                         }
                     }
@@ -77,9 +58,47 @@ struct TaskListView_Previews: PreviewProvider {
 
 struct DetailView: View {
     
-    let name: String
-
+    let task: Task
+    
     var body: some View {
-        Text("Detail View for \(name)")
+        VStack {
+            Text(task.name)
+            Text(task.description ?? "")
+            Button("Mark as completed") {
+                // Mark the task as completed
+            }
+        }
+    }
+}
+
+struct TaskDetail: View {
+    let task: Task
+    
+    var body: some View {
+        VStack {
+            Text(task.name)
+                .font(.title)
+                .padding(.bottom)
+            Text(task.description ?? "")
+                .padding(.bottom)
+            HStack {
+                Image(systemName: task.completed ?? false ? "checkmark.square" : "square")
+                    .padding(.leading)
+                Text(task.completed ?? false ? "Completed" : "Not completed")
+                    .padding(.trailing)
+            }
+            .padding(.bottom)
+            Button("Mark as completed") {
+                // Mark the task as completed
+            
+            }
+            .padding(.bottom)
+            Button("Delete task") {
+                // Delete the task
+            }
+            .padding(.bottom)
+        }
+        .padding()
+        .navigationBarTitle("Task Detail")
     }
 }
