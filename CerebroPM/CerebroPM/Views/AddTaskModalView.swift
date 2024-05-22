@@ -13,7 +13,7 @@ struct AddTaskModalView: View {
     @State private var name = ""
     @State private var description = ""
     
-    let onDismiss: (String) -> Void
+    let onDismissWithTask: (TaskModel) -> Void
     
     var body: some View {
         VStack {
@@ -24,7 +24,8 @@ struct AddTaskModalView: View {
             TextField("Description", text: $description)
                 .textFieldStyle(.roundedBorder)
             Button("Dismiss") {
-                onDismiss("dismissed....")
+                let task = TaskModel(name: name, description: description, completed: false)
+                onDismissWithTask(task)
                 isShowingModal.toggle()
             }
             Spacer()
@@ -35,6 +36,6 @@ struct AddTaskModalView: View {
 
 struct AddTaskModalView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTaskModalView(isShowingModal: .constant(true), onDismiss:{ _ in })
+        AddTaskModalView(isShowingModal: .constant(true), onDismissWithTask:{ _ in })
     }
 }

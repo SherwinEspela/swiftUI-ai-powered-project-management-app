@@ -36,13 +36,15 @@ struct TaskDetailView: View {
             .padding(.bottom)
         }
         .padding()
-        .navigationBarTitle(task.name)
+        .navigationTitle(task.name)
     }
 }
 
 struct TaskDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let testTask = TaskModel(name: "coding task 1", description: "", completed: false)
-        TaskDetailView(task: testTask)
+        NavigationStack {
+            TaskDetailView(task: testTask)
+        }
     }
 }

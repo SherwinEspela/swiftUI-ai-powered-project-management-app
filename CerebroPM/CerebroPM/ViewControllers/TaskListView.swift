@@ -9,34 +9,51 @@ import SwiftUI
 import os
 
 struct TaskListView: View {
-    @State private var tasks: [TaskModel] = [
-        TaskModel(name: "coding task 1", description: "", completed: false),
-        TaskModel(name: "debugging", description: "", completed: false),
-        TaskModel(name: "Task 3", description: "", completed: false)
+    @State private var allTasks: [TaskModel] = [
+        TaskModel(name: "task sample 1", description: "task sample 1 description", completed: false),
+        TaskModel(name: "task sample 2", description: "task sample 1 description", completed: false),
+        TaskModel(name: "task sample 3", description: "task sample 1 description", completed: false)
     ]
     
-    @State private var showDetail = false
-    @State private var selection: String? = nil
+    @State private var filteredTasks: [TaskModel] = []
     @State private var isShowingModal = false
+    @State private var search: String = ""
         
         var body: some View {
             NavigationStack {
-                List(tasks) { task in
+                List(filteredTasks) { task in
                     NavigationLink(value: task) {
                         Text(task.name)
                     }
                 }
+                .listStyle(.plain)
+                .searchable(text: $search)
+                .onChange(of: search, perform: { newSearch in
+                    
+                    if(newSearch.isEmpty){
+                        filteredTasks = allTasks
+                        return
+                    }
+                    
+                    filteredTasks = allTasks.filter({ t in
+                        t.name.lowercased().contains(newSearch.lowercased())
+                    })
+                })
                 .navigationTitle("Tasks")
                 .navigationDestination(for: TaskModel.self){ task in
                     TaskDetailView(task: task)
+                }
+                .onAppear {
+                    filteredTasks = allTasks
                 }
                 
                 Button("Add Task") {
                     isShowingModal.toggle()
                 }
                 .sheet(isPresented: $isShowingModal){
-                    AddTaskModalView(isShowingModal: $isShowingModal) { message in
-                        print("dismiss message: \(message)")
+                    AddTaskModalView(isShowingModal: $isShowingModal) { task in
+                        allTasks.append(task)
+                        print("dismiss message: \(task.name)")
                     }
                 }
             }
@@ -46,22 +63,5 @@ struct TaskListView: View {
 struct TaskListView_Previews: PreviewProvider {
     static var previews: some View {
         TaskListView()
-    }
-}
-
-struct AddTaskModal: View {
-    
-    @State private var isShowingModal = false
-    
-    var body: some View {
-        VStack {
-            Text("Add Task")
-                .font(.title)
-            Text("This is a modal view with a title and a message.")
-            Button("Dismiss") {
-                isShowingModal.toggle()
-            }
-        }
-        .padding()
     }
 }
