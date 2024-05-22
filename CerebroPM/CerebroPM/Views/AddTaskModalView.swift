@@ -15,6 +15,14 @@ struct AddTaskModalView: View {
     
     let onDismissWithTask: (TaskModel) -> Void
     
+    fileprivate func handleDismiss() {
+        if(!name.isEmpty){
+            let task = TaskModel(name: name, description: description, completed: false)
+            onDismissWithTask(task)
+        }
+        isShowingModal.toggle()
+    }
+    
     var body: some View {
         VStack {
             Text("Add Task")
@@ -24,9 +32,7 @@ struct AddTaskModalView: View {
             TextField("Description", text: $description)
                 .textFieldStyle(.roundedBorder)
             Button("Dismiss") {
-                let task = TaskModel(name: name, description: description, completed: false)
-                onDismissWithTask(task)
-                isShowingModal.toggle()
+                handleDismiss()
             }
             Spacer()
         }
